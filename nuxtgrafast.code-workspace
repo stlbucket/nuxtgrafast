@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../nuxt3-supabase-postgraphile"
+		},
+		{
+			"path": "../nuxt-modules/supabase"
+		}
+	],
+  "settings": {}
+}

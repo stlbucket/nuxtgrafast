@@ -1,0 +1,3 @@
+graphile.config.ts
+nuxt-adapter.ts
+fastify-adapter.ts

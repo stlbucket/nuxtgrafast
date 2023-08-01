@@ -12,8 +12,13 @@
     "lint:fix": "eslint --fix"
   },
   "devDependencies": {
-    "nuxt": "3.5.1",
     "@myturborepo/tsconfig": "workspace:*",
-    "@myturborepo/ui": "workspace:*"
+    "@myturborepo/ui": "workspace:*",
+    "nuxt": "3.5.1"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.6.5",
+    "graphile-config": "0.0.1-0.0",
+    "postgraphile": "5.0.0-alpha.18"
   }
 }
