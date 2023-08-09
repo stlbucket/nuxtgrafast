@@ -2,6 +2,7 @@
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "nodenext", // Or "nodenext"
+    "moduleResolution": "nodenext", // Or "nodenext",
+    "lib": ["DOM"]
   },
 }
