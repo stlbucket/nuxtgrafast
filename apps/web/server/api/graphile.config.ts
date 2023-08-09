@@ -22,10 +22,10 @@ const preset: GraphileConfig.Preset = {
     /* list of PG database configurations, e.g.: */
     makePgService({
       // Database connection string:
-      connectionString: 'postgresql://postgres:postgres@localhost:54322/postgres',
+      connectionString: process.env.DATABASE_URL || 'postgres://postgres:1234@0.0.0.0/nuxtgrafast',
 
       // List of database schemas to expose:
-      schemas: 'todo,todo_fn_api,app,app_fn_api,msg,msg_fn_api,inc,inc_fn_api,zst,zst_fn_api'.split(','),
+      schemas: ["public"],
 
       // Enable LISTEN/NOTIFY:
       pubsub: false,
@@ -40,7 +40,9 @@ const preset: GraphileConfig.Preset = {
   grafast: {
     /* options for Grafast, including setting GraphQL context*/
     context: (requestContext, args) => {
-      const moresettings = {} // requestContext.nuxtv3?.event.context.
+      // this is where user session data set in /server/middleware/auth is used to pass into the query context
+      const additionalSettings = {} // requestContext.nuxtv3?.event.context.
+
       // const pgSettings = {
       //   role: claims.aud || 'anon',
       //   'request.jwt.claim.sub': claims.sub,
@@ -53,7 +55,7 @@ const preset: GraphileConfig.Preset = {
       return {
         pgSettings: {
           ...args.contextValue?.pgSettings,
-          ...moresettings
+          ...additionalSettings
         }
       }
     }
